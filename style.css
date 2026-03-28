@@ -1604,3 +1604,288 @@ body {
     width: 100% !important;
     height: 300px !important;
 }
+
+/* Clan Tools Styles */
+.clan-tools-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.tool-section {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+/* Bingo Card Styles */
+.bingo-container h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 10px;
+}
+
+.bingo-date {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.bingo-tile {
+    aspect-ratio: 1;
+    background-color: var(--osrs-bg-light);
+    border: 2px solid var(--osrs-border);
+    border-radius: 6px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.bingo-tile:hover {
+    transform: scale(1.05);
+}
+
+.bingo-tile.completed {
+    background-color: rgba(74, 222, 128, 0.2);
+    border-color: #4ade80;
+}
+
+.bingo-tile.winning {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+    border-color: var(--osrs-gold);
+}
+
+.bingo-task {
+    font-size: 0.75em;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.completed-by {
+    font-size: 0.65em;
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.bingo-stats {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.bingo-stats h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+}
+
+.bingo-stats p {
+    color: var(--text-secondary);
+    margin: 5px 0;
+}
+
+.participant-scores {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--osrs-border);
+}
+
+/* Raid Split Calculator Styles */
+.raid-split-calculator h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.split-inputs {
+    margin-bottom: 20px;
+}
+
+.split-inputs .input-group {
+    margin-bottom: 15px;
+}
+
+.split-inputs label {
+    display: block;
+    color: var(--osrs-light-gold);
+    margin-bottom: 5px;
+}
+
+.split-inputs input,
+.split-inputs select {
+    width: 100%;
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.participants-list h4 {
+    color: var(--osrs-light-gold);
+    margin: 20px 0 10px;
+}
+
+#participant-inputs {
+    display: grid;
+    gap: 10px;
+}
+
+.participant-name {
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.calculate-split-btn {
+    width: 100%;
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.calculate-split-btn:hover {
+    opacity: 0.8;
+}
+
+.split-result {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.split-result h4 {
+    color: var(--osrs-gold);
+    margin-bottom: 15px;
+}
+
+.total-loot {
+    font-size: 1.2em;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.per-person {
+    font-size: 1.4em;
+    color: #4ade80;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.remainder {
+    color: #f59e0b;
+    font-size: 0.9em;
+}
+
+.split-breakdown {
+    margin-top: 20px;
+    border-top: 1px solid var(--osrs-border);
+    padding-top: 15px;
+}
+
+.split-player {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--osrs-bg-dark);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.split-history h4 {
+    color: var(--osrs-light-gold);
+    margin: 30px 0 15px;
+}
+
+.history-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--osrs-bg-light);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+}
+
+/* Competition Leaderboard Styles */
+.competitions-section {
+    display: grid;
+    gap: 20px;
+}
+
+.competition-card {
+    background-color: var(--osrs-bg-light);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.competition-card h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 10px;
+}
+
+.comp-date {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.leaderboard-entry {
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--osrs-bg-dark);
+    border-radius: 6px;
+    transition: transform 0.2s;
+}
+
+.leaderboard-entry:hover {
+    transform: translateX(5px);
+}
+
+.leaderboard-entry.top3 {
+    border-left: 3px solid var(--osrs-gold);
+}
+
+.leaderboard-entry:first-child.top3 {
+    background: linear-gradient(to right, rgba(251, 191, 36, 0.1), transparent);
+}
+
+.rank {
+    color: var(--osrs-gold);
+    font-weight: 600;
+}
+
+.player-name {
+    color: var(--text-primary);
+}
+
+.xp-gained, .kills {
+    text-align: right;
+    color: #4ade80;
+    font-weight: 500;
+}

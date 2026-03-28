@@ -24,6 +24,7 @@
             <button class="nav-tab" data-tab="dps">DPS Calculator</button>
             <button class="nav-tab" data-tab="efficiency">Efficiency Engine</button>
             <button class="nav-tab" data-tab="boss-tracker">Boss Tracker</button>
+            <button class="nav-tab" data-tab="clan-tools">Clan Tools</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -86,6 +87,14 @@
                 <h2 class="section-title">Boss Kill Tracker with Analytics</h2>
                 <div id="boss-tracker-content">
                     <div class="loading">Loading boss tracker...</div>
+                </div>
+            </div>
+
+            <!-- Clan Tools -->
+            <div id="clan-tools" class="tab-content">
+                <h2 class="section-title">Clan Tools Dashboard</h2>
+                <div id="clan-tools-content">
+                    <div class="loading">Loading clan tools...</div>
                 </div>
             </div>
 
@@ -190,6 +199,7 @@
     <script src="dps-calculator.js"></script>
     <script src="efficiency-engine.js"></script>
     <script src="boss-tracker.js"></script>
+    <script src="clan-tools.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -230,6 +240,14 @@
                 if (!window.bossTrackerInitialized) {
                     window.bossTracker.init();
                     window.bossTrackerInitialized = true;
+                }
+            });
+            
+            // Initialize clan tools when tab is clicked
+            document.querySelector('[data-tab="clan-tools"]').addEventListener('click', function() {
+                if (!window.clanToolsInitialized) {
+                    window.clanTools.init();
+                    window.clanToolsInitialized = true;
                 }
             });
         });
