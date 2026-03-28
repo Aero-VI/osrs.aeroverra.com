@@ -2513,3 +2513,394 @@ body {
     font-weight: 600;
     cursor: pointer;
 }
+
+/* GE Analyzer Styles */
+.ge-analyzer {
+    display: grid;
+    gap: 30px;
+}
+
+/* Market Alerts */
+.market-alerts {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.market-alerts h3 {
+    color: #ef4444;
+    margin-bottom: 15px;
+}
+
+.alerts-list {
+    display: grid;
+    gap: 10px;
+}
+
+.alert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: var(--osrs-bg-light);
+    border-radius: 4px;
+    border-left: 3px solid;
+}
+
+.alert-item.price-rise {
+    border-left-color: #4ade80;
+}
+
+.alert-item.price-drop {
+    border-left-color: #ef4444;
+}
+
+.alert-item.high-margin {
+    border-left-color: var(--osrs-gold);
+}
+
+.alert-icon {
+    font-size: 1.2em;
+}
+
+.alert-message {
+    color: var(--text-primary);
+}
+
+/* Arbitrage Opportunities */
+.arbitrage-opportunities {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.arbitrage-opportunities h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.opportunities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.opportunity-card {
+    background-color: var(--osrs-bg-light);
+    border: 2px solid var(--osrs-border);
+    border-radius: 6px;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.opportunity-card.risk-low {
+    border-color: #4ade80;
+}
+
+.opportunity-card.risk-medium {
+    border-color: #fbbf24;
+}
+
+.opportunity-card.risk-high {
+    border-color: #ef4444;
+}
+
+.opportunity-card h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 15px;
+}
+
+.opp-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.opp-stats .stat {
+    text-align: center;
+}
+
+.opp-stats .label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.8em;
+    margin-bottom: 3px;
+}
+
+.opp-stats .value {
+    display: block;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.risk-badge {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}
+
+.risk-badge[class*="low"] {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.risk-badge[class*="medium"] {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.risk-badge[class*="high"] {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.prices {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+}
+
+.buy-price {
+    color: #ef4444;
+}
+
+.sell-price {
+    color: #4ade80;
+}
+
+/* Watchlist */
+.watchlist-section {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.watchlist-section h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.watchlist-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.watchlist-controls input {
+    flex: 1;
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.watchlist-controls button {
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.watchlist-items {
+    display: grid;
+    gap: 15px;
+}
+
+.watchlist-item {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+    position: relative;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-header h4 {
+    color: var(--osrs-light-gold);
+}
+
+.trend {
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.trend-rising {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+}
+
+.trend-falling {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+}
+
+.trend-stable {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+.item-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.mini-chart {
+    width: 100px;
+    height: 30px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: #ef4444;
+}
+
+/* Flip Tracker */
+.flip-tracker {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.flip-tracker h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.flip-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.flip-form input {
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.flip-form button {
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.flip-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.flip-stats .stat-box {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+}
+
+.flip-stats h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+}
+
+.flip-stats p {
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.flip-history h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 15px;
+}
+
+.flip-entry {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 8px;
+    background-color: var(--osrs-bg-light);
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.flip-entry.profit {
+    border-left: 3px solid #4ade80;
+}
+
+.flip-entry.loss {
+    border-left: 3px solid #ef4444;
+}
+
+.flip-item {
+    color: var(--text-primary);
+}
+
+.flip-quantity {
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.flip-profit {
+    text-align: right;
+    font-weight: 600;
+}
+
+.profit .flip-profit {
+    color: #4ade80;
+}
+
+.loss .flip-profit {
+    color: #ef4444;
+}
+
+.flip-time {
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}

@@ -27,6 +27,7 @@
             <button class="nav-tab" data-tab="clan-tools">Clan Tools</button>
             <button class="nav-tab" data-tab="account-progress">Progress Hub</button>
             <button class="nav-tab" data-tab="clue-helper">Clue Helper</button>
+            <button class="nav-tab" data-tab="ge-analyzer">GE Analyzer</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -113,6 +114,14 @@
                 <h2 class="section-title">Clue Scroll Helper Suite</h2>
                 <div id="clue-helper-content">
                     <div class="loading">Loading clue helper...</div>
+                </div>
+            </div>
+
+            <!-- GE Analyzer -->
+            <div id="ge-analyzer" class="tab-content">
+                <h2 class="section-title">GE Market Analyzer</h2>
+                <div id="ge-analyzer-content">
+                    <div class="loading">Loading GE analyzer...</div>
                 </div>
             </div>
 
@@ -220,6 +229,7 @@
     <script src="clan-tools.js"></script>
     <script src="account-progress.js"></script>
     <script src="clue-helper.js"></script>
+    <script src="ge-analyzer.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -284,6 +294,14 @@
                 if (!window.clueHelperInitialized) {
                     window.clueHelper.init();
                     window.clueHelperInitialized = true;
+                }
+            });
+            
+            // Initialize GE analyzer when tab is clicked
+            document.querySelector('[data-tab="ge-analyzer"]').addEventListener('click', function() {
+                if (!window.geAnalyzerInitialized) {
+                    window.geAnalyzer.init();
+                    window.geAnalyzerInitialized = true;
                 }
             });
         });
