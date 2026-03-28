@@ -20,6 +20,7 @@
         <nav class="nav-tabs">
             <button class="nav-tab active" data-tab="stats">Live Stats</button>
             <button class="nav-tab" data-tab="hiscores">Hiscores Tracker</button>
+            <button class="nav-tab" data-tab="collection">Collection Log</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -50,6 +51,14 @@
                 <h2 class="section-title">Live Hiscores Tracker with Delta Analysis</h2>
                 <div id="hiscores-tracker-content">
                     <div class="loading">Loading hiscores data...</div>
+                </div>
+            </div>
+
+            <!-- Collection Log Tracker -->
+            <div id="collection" class="tab-content">
+                <h2 class="section-title">Collection Log Tracker + Completion Optimizer</h2>
+                <div id="collection-log-content">
+                    <div class="loading">Loading collection log...</div>
                 </div>
             </div>
 
@@ -150,6 +159,7 @@
     
     <script src="app.js"></script>
     <script src="hiscores-tracker.js"></script>
+    <script src="collection-log.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -158,6 +168,14 @@
                 if (!window.hiscoresTrackerStarted) {
                     window.hiscoresTracker.start();
                     window.hiscoresTrackerStarted = true;
+                }
+            });
+            
+            // Initialize collection log when tab is clicked
+            document.querySelector('[data-tab="collection"]').addEventListener('click', function() {
+                if (!window.collectionLogInitialized) {
+                    window.collectionLog.init();
+                    window.collectionLogInitialized = true;
                 }
             });
         });
