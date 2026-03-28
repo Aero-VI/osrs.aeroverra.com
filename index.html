@@ -22,6 +22,7 @@
             <button class="nav-tab" data-tab="hiscores">Hiscores Tracker</button>
             <button class="nav-tab" data-tab="collection">Collection Log</button>
             <button class="nav-tab" data-tab="dps">DPS Calculator</button>
+            <button class="nav-tab" data-tab="efficiency">Efficiency Engine</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -68,6 +69,14 @@
                 <h2 class="section-title">Advanced DPS Calculator</h2>
                 <div id="dps-calculator-content">
                     <div class="loading">Loading DPS calculator...</div>
+                </div>
+            </div>
+
+            <!-- Efficiency Engine -->
+            <div id="efficiency" class="tab-content">
+                <h2 class="section-title">Efficiency Routing Engine</h2>
+                <div id="efficiency-content">
+                    <div class="loading">Loading efficiency engine...</div>
                 </div>
             </div>
 
@@ -170,6 +179,7 @@
     <script src="hiscores-tracker.js"></script>
     <script src="collection-log.js"></script>
     <script src="dps-calculator.js"></script>
+    <script src="efficiency-engine.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -194,6 +204,14 @@
                 if (!window.dpsCalculatorInitialized) {
                     window.dpsCalculator.init();
                     window.dpsCalculatorInitialized = true;
+                }
+            });
+            
+            // Initialize efficiency engine when tab is clicked
+            document.querySelector('[data-tab="efficiency"]').addEventListener('click', function() {
+                if (!window.efficiencyEngineInitialized) {
+                    window.efficiencyEngine.init();
+                    window.efficiencyEngineInitialized = true;
                 }
             });
         });
