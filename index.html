@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSRS Stats Tracker - Samuelb2800 vs 10enics</title>
+    <title>OSRS Stats Tracker - Samuelb2800 vs 10tontos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,7 @@
         <!-- Navigation Tabs -->
         <nav class="nav-tabs">
             <button class="nav-tab active" data-tab="stats">Live Stats</button>
+            <button class="nav-tab" data-tab="hiscores">Hiscores Tracker</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -38,9 +39,17 @@
                     </div>
                     <div class="vs-divider">VS</div>
                     <div class="player-stats" id="player2-stats">
-                        <h3 class="player-name">10enics</h3>
+                        <h3 class="player-name">10tontos</h3>
                         <div class="loading">Loading stats...</div>
                     </div>
+                </div>
+            </div>
+
+            <!-- Hiscores Tracker -->
+            <div id="hiscores" class="tab-content">
+                <h2 class="section-title">Live Hiscores Tracker with Delta Analysis</h2>
+                <div id="hiscores-tracker-content">
+                    <div class="loading">Loading hiscores data...</div>
                 </div>
             </div>
 
@@ -135,6 +144,23 @@
         </footer>
     </div>
 
+    <!-- Chart.js for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    
     <script src="app.js"></script>
+    <script src="hiscores-tracker.js"></script>
+    
+    <script>
+        // Initialize hiscores tracker when tab is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('[data-tab="hiscores"]').addEventListener('click', function() {
+                if (!window.hiscoresTrackerStarted) {
+                    window.hiscoresTracker.start();
+                    window.hiscoresTrackerStarted = true;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -30,7 +30,7 @@ document.querySelectorAll('.nav-tab').forEach(tab => {
 // Load stats on page load
 window.addEventListener('DOMContentLoaded', () => {
     loadPlayerStats('Samuelb2800', 'player1-stats');
-    loadPlayerStats('10enics', 'player2-stats');
+    loadPlayerStats('10tontos', 'player2-stats');
     loadXPGains();
     loadCorpProgress();
 });

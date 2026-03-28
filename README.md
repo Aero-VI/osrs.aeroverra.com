@@ -1,6 +1,6 @@
 # OSRS Stats Tracker
 
-Real-time OSRS stats tracker and money-making calculator for tracking Samuelb2800 vs 10enics progress.
+Real-time OSRS stats tracker and money-making calculator for tracking Samuelb2800 vs 10tontos progress.
 
 ## Features
 
