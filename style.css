@@ -760,3 +760,327 @@ body {
 .update-kc-btn:hover {
     opacity: 0.8;
 }
+
+/* DPS Calculator Styles */
+.dps-interface {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 1200px) {
+    .dps-interface {
+        grid-template-columns: 1fr;
+    }
+}
+
+.loadout-builder {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.loadout-builder h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.loadout-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    color: var(--osrs-light-gold);
+    font-size: 0.9em;
+}
+
+.input-group input,
+.input-group select {
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.combat-stats,
+.gear-bonuses {
+    margin-top: 20px;
+}
+
+.combat-stats h4,
+.gear-bonuses h4 {
+    color: var(--osrs-gold);
+    margin-bottom: 15px;
+}
+
+.stat-grid,
+.bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.stat-input,
+.bonus-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat-input label,
+.bonus-input label {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}
+
+.stat-input input,
+.bonus-input input {
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 6px;
+    color: var(--text-primary);
+    width: 100%;
+}
+
+.prayer-select {
+    margin-top: 15px;
+}
+
+.prayer-select label {
+    display: block;
+    color: var(--osrs-light-gold);
+    margin-bottom: 5px;
+}
+
+.prayer-select select {
+    width: 100%;
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 8px;
+    color: var(--text-primary);
+}
+
+.add-loadout-btn {
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.add-loadout-btn:hover {
+    opacity: 0.8;
+}
+
+.monster-select {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.monster-select h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 15px;
+}
+
+.monster-select select {
+    width: 100%;
+    background-color: var(--osrs-bg-light);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    padding: 10px;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.calculate-dps-btn {
+    background-color: #4ade80;
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.calculate-dps-btn:hover {
+    opacity: 0.8;
+}
+
+.loadout-list {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.loadout-list h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 15px;
+}
+
+.saved-loadout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--osrs-bg-light);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.saved-loadout button {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+}
+
+.dps-results {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+}
+
+.dps-results h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.dps-chart {
+    display: grid;
+    gap: 20px;
+}
+
+.dps-result {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.dps-result.best {
+    border-color: #4ade80;
+    box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.dps-result h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 15px;
+}
+
+.dps-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .dps-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.dps-stat {
+    text-align: center;
+}
+
+.dps-stat .stat-label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+.dps-stat .stat-value {
+    display: block;
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.dps-bar {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.dps-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    transition: width 0.5s ease;
+}
+
+.spec-calculator {
+    grid-column: 1 / -1;
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.spec-calculator h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 15px;
+}
+
+.spec-weapons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.spec-weapons button {
+    flex: 1;
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.spec-weapons button:hover {
+    opacity: 0.8;
+}
+
+#spec-results {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+#spec-results h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+}
+
+.spec-stats p {
+    color: var(--text-primary);
+    margin: 5px 0;
+}

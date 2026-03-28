@@ -21,6 +21,7 @@
             <button class="nav-tab active" data-tab="stats">Live Stats</button>
             <button class="nav-tab" data-tab="hiscores">Hiscores Tracker</button>
             <button class="nav-tab" data-tab="collection">Collection Log</button>
+            <button class="nav-tab" data-tab="dps">DPS Calculator</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -59,6 +60,14 @@
                 <h2 class="section-title">Collection Log Tracker + Completion Optimizer</h2>
                 <div id="collection-log-content">
                     <div class="loading">Loading collection log...</div>
+                </div>
+            </div>
+
+            <!-- DPS Calculator -->
+            <div id="dps" class="tab-content">
+                <h2 class="section-title">Advanced DPS Calculator</h2>
+                <div id="dps-calculator-content">
+                    <div class="loading">Loading DPS calculator...</div>
                 </div>
             </div>
 
@@ -160,6 +169,7 @@
     <script src="app.js"></script>
     <script src="hiscores-tracker.js"></script>
     <script src="collection-log.js"></script>
+    <script src="dps-calculator.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -176,6 +186,14 @@
                 if (!window.collectionLogInitialized) {
                     window.collectionLog.init();
                     window.collectionLogInitialized = true;
+                }
+            });
+            
+            // Initialize DPS calculator when tab is clicked
+            document.querySelector('[data-tab="dps"]').addEventListener('click', function() {
+                if (!window.dpsCalculatorInitialized) {
+                    window.dpsCalculator.init();
+                    window.dpsCalculatorInitialized = true;
                 }
             });
         });
