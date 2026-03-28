@@ -1889,3 +1889,326 @@ body {
     color: #4ade80;
     font-weight: 500;
 }
+
+/* Account Progress Hub Styles */
+.progress-hub {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.player-selector {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.player-btn {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 6px;
+    padding: 10px 30px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.player-btn.active {
+    background-color: var(--osrs-dark-gold);
+    color: var(--osrs-bg-dark);
+    border-color: var(--osrs-dark-gold);
+}
+
+.player-btn:hover {
+    transform: translateY(-2px);
+}
+
+.progress-sections {
+    display: grid;
+    gap: 30px;
+}
+
+.progress-section {
+    background-color: var(--osrs-bg-dark);
+    border: 2px solid var(--osrs-border);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.progress-section h3 {
+    color: var(--osrs-gold);
+    margin-bottom: 20px;
+}
+
+.overall-progress {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    text-align: center;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Combat Achievements */
+.tier-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tier-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 80px;
+    align-items: center;
+    gap: 15px;
+}
+
+.tier-name {
+    color: var(--osrs-light-gold);
+    font-weight: 500;
+}
+
+.tier-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tier-bar {
+    flex: 1;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tier-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.tier-fill.easy { background-color: #4ade80; }
+.tier-fill.medium { background-color: #60a5fa; }
+.tier-fill.hard { background-color: #fbbf24; }
+.tier-fill.elite { background-color: #f87171; }
+.tier-fill.master { background-color: #c084fc; }
+.tier-fill.grandmaster { background-color: #f472b6; }
+
+.tier-numbers {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+/* Achievement Diaries */
+.diary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.diary-region {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+}
+
+.diary-region h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.diary-tiers {
+    display: flex;
+    gap: 8px;
+}
+
+.diary-tier {
+    width: 28px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--osrs-border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    cursor: help;
+}
+
+.diary-tier.complete {
+    background-color: #4ade80;
+    color: var(--osrs-bg-dark);
+    border-color: #4ade80;
+    font-weight: 600;
+}
+
+/* Missing Items */
+.missing-items {
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.missing-items h4 {
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+}
+
+.missing-grid {
+    display: grid;
+    gap: 8px;
+}
+
+.missing-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    background-color: var(--osrs-bg-dark);
+    border-radius: 4px;
+}
+
+.item-name {
+    color: var(--text-primary);
+}
+
+.item-location {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}
+
+.more-items {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.complete-message {
+    text-align: center;
+    color: #4ade80;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 20px;
+}
+
+/* Quest Grid */
+.quest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.quest-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--osrs-bg-dark);
+    border-radius: 4px;
+    border-left: 3px solid;
+}
+
+.quest-item.novice { border-left-color: #4ade80; }
+.quest-item.intermediate { border-left-color: #60a5fa; }
+.quest-item.experienced { border-left-color: #fbbf24; }
+.quest-item.master { border-left-color: #f87171; }
+.quest-item.grandmaster { border-left-color: #c084fc; }
+
+.quest-name {
+    color: var(--text-primary);
+    font-size: 0.9em;
+}
+
+.quest-difficulty {
+    color: var(--text-secondary);
+    font-size: 0.8em;
+}
+
+/* Collections */
+.collection-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.collection-item {
+    background-color: var(--osrs-bg-light);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.collection-icon {
+    font-size: 2em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.collection-name {
+    display: block;
+    color: var(--osrs-light-gold);
+    margin-bottom: 10px;
+}
+
+.collection-count {
+    display: block;
+    color: var(--text-primary);
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Cape Checklist */
+.cape-checklist {
+    display: grid;
+    gap: 12px;
+}
+
+.cape-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: var(--osrs-bg-light);
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.cape-item.obtained {
+    border-color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.1);
+}
+
+.cape-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.cape-status {
+    color: var(--text-secondary);
+}
+
+.cape-item.obtained .cape-status {
+    color: #4ade80;
+    font-size: 1.2em;
+}

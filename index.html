@@ -25,6 +25,7 @@
             <button class="nav-tab" data-tab="efficiency">Efficiency Engine</button>
             <button class="nav-tab" data-tab="boss-tracker">Boss Tracker</button>
             <button class="nav-tab" data-tab="clan-tools">Clan Tools</button>
+            <button class="nav-tab" data-tab="account-progress">Progress Hub</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -95,6 +96,14 @@
                 <h2 class="section-title">Clan Tools Dashboard</h2>
                 <div id="clan-tools-content">
                     <div class="loading">Loading clan tools...</div>
+                </div>
+            </div>
+
+            <!-- Account Progress Hub -->
+            <div id="account-progress" class="tab-content">
+                <h2 class="section-title">Account Progress Hub</h2>
+                <div id="progress-hub-content">
+                    <div class="loading">Loading progress hub...</div>
                 </div>
             </div>
 
@@ -200,6 +209,7 @@
     <script src="efficiency-engine.js"></script>
     <script src="boss-tracker.js"></script>
     <script src="clan-tools.js"></script>
+    <script src="account-progress.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -248,6 +258,14 @@
                 if (!window.clanToolsInitialized) {
                     window.clanTools.init();
                     window.clanToolsInitialized = true;
+                }
+            });
+            
+            // Initialize account progress when tab is clicked
+            document.querySelector('[data-tab="account-progress"]').addEventListener('click', function() {
+                if (!window.accountProgressInitialized) {
+                    window.accountProgress.init();
+                    window.accountProgressInitialized = true;
                 }
             });
         });
