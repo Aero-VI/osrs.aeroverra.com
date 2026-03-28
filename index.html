@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Stats Tracker - Samuelb2800 vs 10enics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1 class="title">OSRS Stats Tracker</h1>
+            <p class="subtitle">Real-Time Progress Tracking</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="stats">Live Stats</button>
+            <button class="nav-tab" data-tab="gains">XP Gains</button>
+            <button class="nav-tab" data-tab="money">Money Making</button>
+            <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
+            <button class="nav-tab" data-tab="quests">Quest Progress</button>
+            <button class="nav-tab" data-tab="corp">Corp Tracker</button>
+        </nav>
+
+        <!-- Tab Content -->
+        <main class="content">
+            <!-- Live Stats Comparison -->
+            <div id="stats" class="tab-content active">
+                <h2 class="section-title">Live Stats Comparison</h2>
+                <div class="stats-container">
+                    <div class="player-stats" id="player1-stats">
+                        <h3 class="player-name">Samuelb2800</h3>
+                        <div class="loading">Loading stats...</div>
+                    </div>
+                    <div class="vs-divider">VS</div>
+                    <div class="player-stats" id="player2-stats">
+                        <h3 class="player-name">10enics</h3>
+                        <div class="loading">Loading stats...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XP Gains Tracker -->
+            <div id="gains" class="tab-content">
+                <h2 class="section-title">XP Gains Tracker</h2>
+                <div class="gains-timeframe">
+                    <button class="timeframe-btn active" data-timeframe="day">Daily</button>
+                    <button class="timeframe-btn" data-timeframe="week">Weekly</button>
+                    <button class="timeframe-btn" data-timeframe="month">Monthly</button>
+                </div>
+                <div id="gains-content" class="gains-container">
+                    <div class="loading">Loading XP gains...</div>
+                </div>
+            </div>
+
+            <!-- Money Making Calculator -->
+            <div id="money" class="tab-content">
+                <h2 class="section-title">Money Making Calculator</h2>
+                <div class="stats-input">
+                    <h3>Enter Your Stats</h3>
+                    <div class="input-grid">
+                        <div class="stat-input">
+                            <label for="combat-level">Combat Level:</label>
+                            <input type="number" id="combat-level" min="3" max="126" placeholder="126">
+                        </div>
+                        <div class="stat-input">
+                            <label for="slayer-level">Slayer:</label>
+                            <input type="number" id="slayer-level" min="1" max="99" placeholder="99">
+                        </div>
+                        <div class="stat-input">
+                            <label for="bank-value">Bank Value (M):</label>
+                            <input type="number" id="bank-value" min="0" placeholder="100">
+                        </div>
+                    </div>
+                    <button class="calculate-btn" onclick="calculateMoneyMaking()">Calculate Best Methods</button>
+                </div>
+                <div id="money-methods" class="methods-container"></div>
+            </div>
+
+            <!-- Gear Optimizer -->
+            <div id="gear" class="tab-content">
+                <h2 class="section-title">Gear Optimizer</h2>
+                <div class="gear-input">
+                    <label for="budget">Budget (GP):</label>
+                    <input type="number" id="budget" placeholder="50000000">
+                    <button class="optimize-btn" onclick="optimizeGear()">Find Best Gear</button>
+                </div>
+                <div id="gear-recommendations" class="gear-container"></div>
+            </div>
+
+            <!-- Quest Progress -->
+            <div id="quests" class="tab-content">
+                <h2 class="section-title">Quest Progress Tracker</h2>
+                <div class="quest-input">
+                    <label for="quest-username">Username:</label>
+                    <input type="text" id="quest-username" placeholder="Samuelb2800">
+                    <button class="check-btn" onclick="checkQuestProgress()">Check Progress</button>
+                </div>
+                <div id="quest-progress" class="quest-container"></div>
+            </div>
+
+            <!-- Corp Tracker -->
+            <div id="corp" class="tab-content">
+                <h2 class="section-title">Corp Beast Tracker - Road to 8B GP</h2>
+                <div class="corp-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="corp-progress-fill"></div>
+                        <span class="progress-text" id="corp-progress-text">0 / 8,000M GP</span>
+                    </div>
+                </div>
+                <div class="corp-stats">
+                    <div class="stat-box">
+                        <h4>Total Kills</h4>
+                        <p id="corp-kills">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>Elysian Sigils</h4>
+                        <p id="ely-count">0</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>GP/Hour</h4>
+                        <p id="corp-gph">0</p>
+                    </div>
+                </div>
+                <div class="corp-log" id="corp-log"></div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Data from CrystalMathLabs API • Not affiliated with Jagex</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
