@@ -26,6 +26,7 @@
             <button class="nav-tab" data-tab="boss-tracker">Boss Tracker</button>
             <button class="nav-tab" data-tab="clan-tools">Clan Tools</button>
             <button class="nav-tab" data-tab="account-progress">Progress Hub</button>
+            <button class="nav-tab" data-tab="clue-helper">Clue Helper</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
             <button class="nav-tab" data-tab="money">Money Making</button>
             <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
@@ -104,6 +105,14 @@
                 <h2 class="section-title">Account Progress Hub</h2>
                 <div id="progress-hub-content">
                     <div class="loading">Loading progress hub...</div>
+                </div>
+            </div>
+
+            <!-- Clue Helper -->
+            <div id="clue-helper" class="tab-content">
+                <h2 class="section-title">Clue Scroll Helper Suite</h2>
+                <div id="clue-helper-content">
+                    <div class="loading">Loading clue helper...</div>
                 </div>
             </div>
 
@@ -210,6 +219,7 @@
     <script src="boss-tracker.js"></script>
     <script src="clan-tools.js"></script>
     <script src="account-progress.js"></script>
+    <script src="clue-helper.js"></script>
     
     <script>
         // Initialize hiscores tracker when tab is clicked
@@ -266,6 +276,14 @@
                 if (!window.accountProgressInitialized) {
                     window.accountProgress.init();
                     window.accountProgressInitialized = true;
+                }
+            });
+            
+            // Initialize clue helper when tab is clicked
+            document.querySelector('[data-tab="clue-helper"]').addEventListener('click', function() {
+                if (!window.clueHelperInitialized) {
+                    window.clueHelper.init();
+                    window.clueHelperInitialized = true;
                 }
             });
         });
