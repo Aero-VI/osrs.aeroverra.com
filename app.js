@@ -38,21 +38,38 @@ window.addEventListener('DOMContentLoaded', () => {
 // Fetch player stats from Hiscores
 async function loadPlayerStats(username, containerId) {
     const container = document.getElementById(containerId);
+    container.innerHTML = '<div class="loading">Loading stats...</div>';
     
     try {
-        // Using a CORS proxy for the official hiscores
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`;
-        const response = await fetch(proxyUrl);
-        const data = await response.json();
+        // Try direct fetch first (works if CORS is configured)
+        let response;
+        let data;
         
-        if (data.contents) {
-            const stats = parseHiscores(data.contents);
-            displayStats(stats, container);
+        try {
+            response = await fetch(OSRS_HISCORES_API + '?player=' + encodeURIComponent(username));
+            data = await response.text();
+        } catch (corsError) {
+            // CORS blocked, use corsproxy.io
+            console.log('Direct fetch blocked, using CORS proxy');
+            response = await fetch(`https://corsproxy.io/?${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`);
+            data = await response.text();
         }
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}: Player not found or API unavailable`);
+        }
+        
+        const stats = parseHiscores(data);
+        displayStats(stats, container, username);
     } catch (error) {
         console.error('Error loading stats:', error);
-        // Fallback to mock data for demo
-        displayMockStats(username, container);
+        container.innerHTML = `
+            <div class="error-message">
+                <h3>${username}</h3>
+                <p>⚠️ Failed to load stats</p>
+                <p style="font-size: 0.9em; color: #888;">${error.message}</p>
+            </div>
+        `;
     }
 }
 
@@ -76,8 +93,8 @@ function parseHiscores(data) {
 }
 
 // Display stats in UI
-function displayStats(stats, container) {
-    let html = `<h3 class="player-name">${container.querySelector('.player-name').textContent}</h3>`;
+function displayStats(stats, container, username) {
+    let html = `<h3 class="player-name">${username}</h3>`;
     
     for (const skill of SKILLS) {
         if (stats[skill] && skill !== 'Overall') {
@@ -93,38 +110,7 @@ function displayStats(stats, container) {
     container.innerHTML = html;
 }
 
-// Display mock stats for demo
-function displayMockStats(username, container) {
-    const mockStats = generateMockStats(username);
-    let html = `<h3 class="player-name">${username}</h3>`;
-    
-    for (const skill of SKILLS.slice(1)) { // Skip Overall
-        html += `
-            <div class="skill-row">
-                <span class="skill-name">${skill}</span>
-                <span class="skill-level">${mockStats[skill]}</span>
-            </div>
-        `;
-    }
-    
-    container.innerHTML = html;
-}
 
-// Generate mock stats based on username
-function generateMockStats(username) {
-    const stats = {};
-    const seed = username.charCodeAt(0);
-    
-    SKILLS.forEach(skill => {
-        if (skill === 'Overall') {
-            stats[skill] = 2000 + seed * 10;
-        } else {
-            stats[skill] = Math.min(99, 70 + Math.floor(Math.random() * 30));
-        }
-    });
-    
-    return stats;
-}
 
 // Load XP gains
 async function loadXPGains() {
