@@ -20,8 +20,9 @@ Real-time OSRS stats tracker and money-making calculator for tracking Samuelb280
 
 ## API Integration
 
-- CrystalMathLabs API for XP tracking
-- OSRS Hiscores for live stats (using CORS proxy)
+- OSRS Hiscores for live stats (via Cloudflare Worker proxy)
+
+**⚠️ IMPORTANT**: The site currently uses `api.allorigins.win` as a CORS proxy, which is unreliable and slow. See `DEPLOYMENT.md` for instructions on deploying the included Cloudflare Worker for free, reliable API access.
 
 ## Local Development
 

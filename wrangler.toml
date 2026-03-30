@@ -1,0 +1,8 @@
+name = "osrs-hiscores-proxy"
+main = "worker.js"
+compatibility_date = "2024-03-01"
+
+[env.production]
+name = "osrs-hiscores-proxy"
+route = ""
+workers_dev = true

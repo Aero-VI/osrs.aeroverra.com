@@ -41,22 +41,19 @@ async function loadPlayerStats(username, containerId) {
     container.innerHTML = '<div class="loading">Loading stats...</div>';
     
     try {
-        // Try direct fetch first (works if CORS is configured)
-        let response;
-        let data;
-        
-        try {
-            response = await fetch(OSRS_HISCORES_API + '?player=' + encodeURIComponent(username));
-            data = await response.text();
-        } catch (corsError) {
-            // CORS blocked, use corsproxy.io
-            console.log('Direct fetch blocked, using CORS proxy');
-            response = await fetch(`https://corsproxy.io/?${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`);
-            data = await response.text();
-        }
+        // Use allorigins.win with /raw endpoint (returns plain text, not JSON)
+        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`;
+        const response = await fetch(proxyUrl);
         
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: Player not found or API unavailable`);
+            throw new Error(`Player "${username}" not found`);
+        }
+        
+        const data = await response.text();
+        
+        // Check if we actually got hiscores data (should start with numbers)
+        if (!data.trim().match(/^-?\d+,\d+,\d+/)) {
+            throw new Error('Invalid response from hiscores API');
         }
         
         const stats = parseHiscores(data);
