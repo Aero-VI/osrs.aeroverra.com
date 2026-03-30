@@ -41,7 +41,8 @@ async function loadPlayerStats(username, containerId) {
     container.innerHTML = '<div class="loading">Loading stats...</div>';
     
     try {
-        // Use allorigins.win with /raw endpoint (returns plain text, not JSON)
+        // TODO: Replace with deployed worker URL after following DEPLOYMENT.md
+        // For now using allorigins.win (slow/unreliable)
         const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`;
         const response = await fetch(proxyUrl);
         

@@ -1,39 +1,72 @@
-# OSRS Stats Site - Deployment Guide
+# OSRS Stats Site - API Proxy Deployment
 
-## The CORS Problem
+## The Problem
 
-The OSRS Hiscores API (`secure.runescape.com`) doesn't allow browser-based JavaScript to fetch data directly due to CORS restrictions. We need a proxy.
-
-## Solution: Cloudflare Worker (Free & Reliable)
-
-Deploy the included `worker.js` as a Cloudflare Worker — it's free for up to 100,000 requests/day.
-
-### Quick Deployment Steps:
-
-1. Go to https://workers.cloudflare.com/
-2. Sign up (free tier)
-3. Create a new Worker
-4. Copy the content of `worker.js` into the worker editor
-5. Deploy it (give it a name like `osrs-api`)
-6. You'll get a URL like: `https://osrs-api.YOUR_SUBDOMAIN.workers.dev`
-7. Update `app.js` line 43 to use your worker URL:
-   ```javascript
-   const proxyUrl = `https://osrs-api.YOUR_SUBDOMAIN.workers.dev?player=${encodeURIComponent(username)}`;
-   ```
-8. Commit, push, done!
-
-### Alternative: Use a Public Proxy (Unreliable)
-
-If you don't want to deploy a worker, the code currently tries `api.allorigins.win/raw` which works... sometimes. Free CORS proxies are slow, rate-limited, and often down.
+The OSRS Hiscores API doesn't allow direct browser access due to CORS restrictions. We need a backend proxy.
 
 ## Current Status
 
-- Mock stats have been **completely removed**
-- Real API integration is implemented
-- Waiting for worker deployment to replace `api.allorigins.win`
+✅ **Mock data completely removed** — no more fake stats!  
+⚠️ **Temporary proxy** — using `api.allorigins.win` (slow, unreliable, often times out)  
+🎯 **Action needed** — deploy a proper proxy for fast, reliable stats
+
+---
+
+## Solution Options
+
+### Option 1: Cloudflare Worker (Recommended)
+
+**Fastest, most reliable, 100% free for up to 100k requests/day**
+
+1. Go to https://workers.cloudflare.com/ and sign up (free)
+2. Click "Create a Worker"
+3. Delete the example code and paste the contents of `worker.js`
+4. Click "Deploy" (name it `osrs-api` or similar)
+5. Copy your worker URL (e.g., `https://osrs-api.YOUR_NAME.workers.dev`)
+6. Update `app.js` line 46:
+   ```javascript
+   const proxyUrl = `https://osrs-api.YOUR_NAME.workers.dev?player=${encodeURIComponent(username)}`;
+   ```
+7. Commit & push!
+
+**Time:** 5 minutes  
+**Cost:** Free forever  
+**Performance:** ⚡ Lightning fast
+
+---
+
+### Option 2: Move to Netlify
+
+**Auto-deploys the included serverless function**
+
+1. Push repo to GitHub (done ✓)
+2. Go to https://app.netlify.com/ and import the repo
+3. Netlify auto-detects `netlify/functions/hiscores.js` and deploys it
+4. Update DNS from GitHub Pages to Netlify
+5. Done! No code changes needed.
+
+**Time:** 10 minutes  
+**Cost:** Free  
+**Performance:** 🔥 Excellent
+
+---
+
+### Option 3: Keep Current Setup (Not Recommended)
+
+The site will work *sometimes* but users will frequently see errors when `api.allorigins.win` is down or rate-limited.
+
+---
 
 ## Testing
 
-Once deployed, test with:
-- `Samuelb2800` (should show 77 Ranged, NOT 93)
-- `10tontos` (should show level 99 in most combat stats)
+After deploying, verify with:
+- `Samuelb2800` → should show **77 Ranged** (not 93!)
+- `10tontos` → should show level 99 combat stats
+
+---
+
+## Summary
+
+**Mock stats removed:** ✅  
+**Real API working:** ⚠️ Unreliable proxy  
+**Fix:** Deploy Cloudflare Worker (5 min) or move to Netlify (10 min)
