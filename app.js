@@ -41,10 +41,9 @@ async function loadPlayerStats(username, containerId) {
     container.innerHTML = '<div class="loading">Loading stats...</div>';
     
     try {
-        // TODO: Replace with deployed worker URL after following DEPLOYMENT.md
-        // For now using allorigins.win (slow/unreliable)
-        const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(OSRS_HISCORES_API + '?player=' + username)}`;
-        const response = await fetch(proxyUrl);
+        // Using Cloudflare Worker for reliable CORS proxy
+        const workerUrl = `https://osrs-hiscores-api.autobuy.workers.dev/?player=${encodeURIComponent(username)}`;
+        const response = await fetch(workerUrl);
         
         if (!response.ok) {
             throw new Error(`Player "${username}" not found`);
