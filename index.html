@@ -29,10 +29,6 @@
             <button class="nav-tab" data-tab="clue-helper">Clue Helper</button>
             <button class="nav-tab" data-tab="ge-analyzer">GE Analyzer</button>
             <button class="nav-tab" data-tab="gains">XP Gains</button>
-            <button class="nav-tab" data-tab="money">Money Making</button>
-            <button class="nav-tab" data-tab="gear">Gear Optimizer</button>
-            <button class="nav-tab" data-tab="quests">Quest Progress</button>
-            <button class="nav-tab" data-tab="corp">Corp Tracker</button>
         </nav>
 
         <!-- Tab Content -->
@@ -128,87 +124,22 @@
             <!-- XP Gains Tracker -->
             <div id="gains" class="tab-content">
                 <h2 class="section-title">XP Gains Tracker</h2>
+                <div class="gains-input">
+                    <label for="gains-username">Username:</label>
+                    <input type="text" id="gains-username" placeholder="Enter username">
+                    <button class="check-btn" onclick="loadXPGains(document.getElementById('gains-username').value, currentTimeframe)">Check Gains</button>
+                </div>
                 <div class="gains-timeframe">
                     <button class="timeframe-btn active" data-timeframe="day">Daily</button>
                     <button class="timeframe-btn" data-timeframe="week">Weekly</button>
                     <button class="timeframe-btn" data-timeframe="month">Monthly</button>
                 </div>
                 <div id="gains-content" class="gains-container">
-                    <div class="loading">Loading XP gains...</div>
+                    <div class="loading">Enter a username and click "Check Gains" to view XP progress.</div>
                 </div>
             </div>
 
-            <!-- Money Making Calculator -->
-            <div id="money" class="tab-content">
-                <h2 class="section-title">Money Making Calculator</h2>
-                <div class="stats-input">
-                    <h3>Enter Your Stats</h3>
-                    <div class="input-grid">
-                        <div class="stat-input">
-                            <label for="combat-level">Combat Level:</label>
-                            <input type="number" id="combat-level" min="3" max="126" placeholder="126">
-                        </div>
-                        <div class="stat-input">
-                            <label for="slayer-level">Slayer:</label>
-                            <input type="number" id="slayer-level" min="1" max="99" placeholder="99">
-                        </div>
-                        <div class="stat-input">
-                            <label for="bank-value">Bank Value (M):</label>
-                            <input type="number" id="bank-value" min="0" placeholder="100">
-                        </div>
-                    </div>
-                    <button class="calculate-btn" onclick="calculateMoneyMaking()">Calculate Best Methods</button>
-                </div>
-                <div id="money-methods" class="methods-container"></div>
-            </div>
 
-            <!-- Gear Optimizer -->
-            <div id="gear" class="tab-content">
-                <h2 class="section-title">Gear Optimizer</h2>
-                <div class="gear-input">
-                    <label for="budget">Budget (GP):</label>
-                    <input type="number" id="budget" placeholder="50000000">
-                    <button class="optimize-btn" onclick="optimizeGear()">Find Best Gear</button>
-                </div>
-                <div id="gear-recommendations" class="gear-container"></div>
-            </div>
-
-            <!-- Quest Progress -->
-            <div id="quests" class="tab-content">
-                <h2 class="section-title">Quest Progress Tracker</h2>
-                <div class="quest-input">
-                    <label for="quest-username">Username:</label>
-                    <input type="text" id="quest-username" placeholder="Samuelb2800">
-                    <button class="check-btn" onclick="checkQuestProgress()">Check Progress</button>
-                </div>
-                <div id="quest-progress" class="quest-container"></div>
-            </div>
-
-            <!-- Corp Tracker -->
-            <div id="corp" class="tab-content">
-                <h2 class="section-title">Corp Beast Tracker - Road to 8B GP</h2>
-                <div class="corp-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="corp-progress-fill"></div>
-                        <span class="progress-text" id="corp-progress-text">0 / 8,000M GP</span>
-                    </div>
-                </div>
-                <div class="corp-stats">
-                    <div class="stat-box">
-                        <h4>Total Kills</h4>
-                        <p id="corp-kills">0</p>
-                    </div>
-                    <div class="stat-box">
-                        <h4>Elysian Sigils</h4>
-                        <p id="ely-count">0</p>
-                    </div>
-                    <div class="stat-box">
-                        <h4>GP/Hour</h4>
-                        <p id="corp-gph">0</p>
-                    </div>
-                </div>
-                <div class="corp-log" id="corp-log"></div>
-            </div>
         </main>
 
         <footer class="footer">
